@@ -5,7 +5,7 @@ Desarrollo de una aplicación multicapa con POO con control de acceso e identifi
 
 **Fecha Inicio Proyecto: 21/12/2021**
 
-**Ultima Actualización: 21/12/2021**
+**Ultima Actualización: 12/01/2022**
 
 ## Descripción 
 Desarrollo de una aplicación multicapa con Programacion Orientada a Objetos con control de acceso e identificación del usuario.
@@ -13,6 +13,7 @@ Desarrollo de una aplicación multicapa con Programacion Orientada a Objetos con
 ## Funcionalidades
 - Control de acceso, identificación de usuario 
 - Control de primer acceso y de ultimo acceso de usuarios
+- Ver informacion de las variables $_SESSION, $_COOKIE, $_SERVER y phpinfo
 
 ## Front end
 - HTML
