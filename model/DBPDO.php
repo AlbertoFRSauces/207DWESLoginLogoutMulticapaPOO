@@ -21,11 +21,10 @@ class DBPDO implements DB{
             $resultadoConsulta->execute($parametros);//Ejecuto la consulta con el array de parametros
             return $resultadoConsulta; //Devuelvo el resultado de la consulta
         }catch(PDOException $excepcion){//Codigo que se ejecuta si hay algun error
-            $resultadoConsulta = null; //Destruyo la consulta
-            $errorExcepcion = $excepcion->getCode();//Obtengo el codigo del error y lo almaceno en la variable errorException
-            $mensajeException = $excepcion->getMessage();//Obtengo el mensaje del error y lo almaceno en la variable mensajeException
-            echo "<p style='color: red'>Codigo del error: </p>" . $errorExcepcion;//Muestro el codigo del error
-            echo "<p style='color: red'>Mensaje del error: </p>" . $mensajeException;//Muestro el mensaje del error
+            $_SESSION['paginaEnCurso'] = 'error';
+            $_SESSION['error'] = new AppError($excepcion->getCode(), $excepcion->getMessage(), $excepcion->getFile(), $excepcion->getLine(), 'iniciopublico');
+            header('Location: index.php');
+            exit;
         } finally{
             unset($DB207DWESLoginLogoutMulticapaPOO);//Cierro la conexion
         }

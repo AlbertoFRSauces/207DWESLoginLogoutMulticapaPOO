@@ -67,6 +67,11 @@ body{
     width: 33px;
     height: 43px;
 }
+.imagenwip{
+    margin:auto auto;
+    display:block;
+}
+
 /* FOOTER */
 .piepagina{
     font-family: "Gotham-Medium";
@@ -221,6 +226,7 @@ fieldset p:first-child{
     text-transform: uppercase;
     cursor: pointer;
     font-weight: bold;
+    margin: 10px;
 }
 .cerrarsesion:hover{
     background-color: white;
@@ -251,8 +257,25 @@ fieldset p:first-child{
     text-transform: uppercase;
     cursor: pointer;
     font-weight: bold;
+    margin: 10px;
 }
 .detalle:hover{
+    background-color: white;
+    color: #252525;
+}
+.mtoDepartamentos{
+    width: 225px;
+    font-size: 105%;
+    padding: 12px;
+    text-align: center;
+    background-color: #252525;
+    color: white;
+    text-transform: uppercase;
+    cursor: pointer;
+    font-weight: bold;
+    margin: 10px;
+}
+.mtoDepartamentos:hover{
     background-color: white;
     color: #252525;
 }
@@ -268,10 +291,10 @@ fieldset p:first-child{
     align-items: center;
 }
 .cerrarsesion{
-    margin: 10px;
+    
 }
 .detalle{
-    margin: 10px;
+    
 }
 
 .usuario{
@@ -323,7 +346,24 @@ td{
     border: 1px solid black;
     margin: 0;
 }
-
+/*CONTENIDO DEL ERROR.PHP CON UNA TABLA Y UN BOTON*/
+.tituloerror{
+    text-align: center;
+    color: red;
+    font-size: 35px;
+}
+.tablaerror{
+    border: 2px solid black;
+    border-collapse: collapse;
+    margin: auto;
+    width: 100%;
+    max-width: 1200px;
+    font-size: 20px;
+}
+.tablaerror th{
+    padding: 8px;
+    
+}
 
 /*CONTENIDO DEL REGISTRO.PHP CON DOS BOTONES*/
 /*

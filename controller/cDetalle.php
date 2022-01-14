@@ -6,8 +6,9 @@
  * @copyright: Copyright (c) 2021, Alberto Fernandez Ramirez
  * Controlador de detalle
  */
-if(isset($_REQUEST['volver'])){ //Si el usuario pulsa el boton de volver, le mando a la ventana de Inicio de nuevo
-    $_SESSION['paginaEnCurso'] = 'inicio'; //Asigno a la pagina el curso la pagina de inicio
+if(isset($_REQUEST['volver'])){ //Si el usuario pulsa el boton de volver, le mando a la ventana de Inicio privado de nuevo
+    $_SESSION['paginaAnterior'] = 'inicioprivado'; //Guardo la pagina actual en paginaAnterior para recordarla
+    $_SESSION['paginaEnCurso'] = 'inicioprivado'; //Asigno a la pagina el curso la pagina de inicio privado
     header('Location: index.php'); //Redireciono de nuevo al login
     exit;
 }

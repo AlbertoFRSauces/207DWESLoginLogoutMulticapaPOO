@@ -23,7 +23,7 @@
             <a href="../proyectoDWES/indexProyectoDWES.php"><img src="../207DWESLoginLogoutMulticapaPOO/webroot/css/img/atras.png" class="imageatras" alt="IconoAtras" /></a>
             <a href="https://github.com/AlbertoFRSauces/207DWESLoginLogoutMulticapaPOO" target="_blank"><img src="../207DWESLoginLogoutMulticapaPOO/webroot/css/img/github.png" class="imagegithub" alt="IconoGitHub" /></a>
             <p><a>&copy;</a><a href="http://daw207.ieslossauces.es/index.php">Alberto Fernández Ramírez</a> 29/09/2021 Todos los derechos reservados.</p>
-            <p>Ultima actualización: 21/12/2021 20:26 - Release 1.0</p>
+            <p>Ultima actualización: 14/01/2022 10:49 - Release 1.0</p>
         </footer>
     </body>
 </html>
