@@ -1,8 +1,3 @@
-/* 
-    Created on : 02/10/2021
-    Author     : Alberto Fernandez Ramirez
-   
-*/
 /*test @import url(//db.onlinewebfonts.com/c/3a47f5f06b5484abfeee9eac90348a9c?family=Gotham);*/
 @font-face {font-family: "Gotham-Medium";
             src: url("3a47f5f06b5484abfeee9eac90348a9c.eot"); /* IE9*/
@@ -22,6 +17,7 @@ body{
     background-repeat:no-repeat;
     background-color:#EEEEEE;
     padding-bottom: 50px;
+    height: 100%;
 }
 .titulopagina{
     font-family: "Gotham-Medium";
@@ -29,7 +25,6 @@ body{
     text-align:center;
     background-color:#252525;
     color:white;
-    padding-top:15px;
     padding-bottom:15px;
     text-transform:uppercase;
 }
@@ -72,6 +67,11 @@ body{
     width: 33px;
     height: 43px;
 }
+.imagenwip{
+    margin:auto auto;
+    display:block;
+}
+
 /* FOOTER */
 .piepagina{
     font-family: "Gotham-Medium";
@@ -91,6 +91,86 @@ body{
 }
 .piepagina p:first-of-type{
     margin-top: 6px;
+}
+
+/*CONTENIDO DEL LOGIN.PHP CON DOS BOTONES*/
+#formulariologin{
+    width: 500px;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: 15px;
+}
+fieldset{
+    border: 2px solid black;
+    padding: 15px;
+}
+#formulariologin ul li{
+    list-style:none;
+    padding-left: 15px;
+    padding-bottom: 15px;
+    padding-right: 15px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+#CodUsuario{
+    width: 251px;
+}
+#Password{
+    width: 239px;
+}
+fieldset p:first-child{
+    font-size: 190%;
+    padding-left: 15px;
+    padding-bottom: 15px;
+}
+.entrar{
+    width: 128px;
+    font-size: 100%;
+    padding: 5px;
+    margin: 3px;
+    text-align: center;
+    background-color: #252525;
+    color: white;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+.entrar:hover{
+    background-color: white;
+    color: #252525;
+}
+.volver{
+    width: 128px;
+    font-size: 100%;
+    padding: 5px;
+    margin: 3px;
+    text-align: center;
+    background-color: #252525;
+    color: white;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+.volver:hover{
+    background-color: white;
+    color: #252525;
+}
+.registrarse{
+    width: 128px;
+    font-size: 100%;
+    padding: 5px;
+    margin: 3px;
+    text-align: center;
+    background-color: #252525;
+    color: white;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+.registrarse:hover{
+    background-color: white;
+    color: #252525;
 }
 
 /*CONTENIDO DEL FORMULARIO EDITAR Y BOTONES ACEPTAR Y CANCELAR*/
@@ -146,6 +226,7 @@ body{
     text-transform: uppercase;
     cursor: pointer;
     font-weight: bold;
+    margin: 10px;
 }
 .cerrarsesion:hover{
     background-color: white;
@@ -176,8 +257,25 @@ body{
     text-transform: uppercase;
     cursor: pointer;
     font-weight: bold;
+    margin: 10px;
 }
 .detalle:hover{
+    background-color: white;
+    color: #252525;
+}
+.mtoDepartamentos{
+    width: 225px;
+    font-size: 105%;
+    padding: 12px;
+    text-align: center;
+    background-color: #252525;
+    color: white;
+    text-transform: uppercase;
+    cursor: pointer;
+    font-weight: bold;
+    margin: 10px;
+}
+.mtoDepartamentos:hover{
     background-color: white;
     color: #252525;
 }
@@ -193,10 +291,10 @@ body{
     align-items: center;
 }
 .cerrarsesion{
-    margin: 10px;
+    
 }
 .detalle{
-    margin: 10px;
+    
 }
 
 .usuario{
@@ -210,6 +308,7 @@ body{
 }
 
 /*CONTENIDO DEL DETALLE.PHP CON DOS BOTONES*/
+
 .cajas{
     background-color: #9999cc;
     border: 1px solid black;
@@ -219,10 +318,11 @@ body{
     padding: 0;
     border-collapse: collapse;
 }
-h2{
+.titulovariable{
     text-align: center;
+    padding-bottom: 10px;
 }
-.volver{
+.volverdetalle{
     width: 150px;
     font-size: 105%;
     padding: 10px;
@@ -232,7 +332,7 @@ h2{
     text-transform: uppercase;
     cursor: pointer;
 }
-.volver:hover{
+.volverdetalle:hover{
     background-color: white;
     color: #252525;
 }
@@ -246,62 +346,27 @@ td{
     border: 1px solid black;
     margin: 0;
 }
-
-/*CONTENIDO DEL LOGIN.PHP CON DOS BOTONES*/
-#CodUsuario{
-    width: 251px;
-}
-#Password{
-    width: 239px;
-}
-.entrar{
-    width: 128px;
-    font-size: 100%;
-    padding: 5px;
-    margin: 3px;
+/*CONTENIDO DEL ERROR.PHP CON UNA TABLA Y UN BOTON*/
+.tituloerror{
     text-align: center;
-    background-color: #252525;
-    color: white;
-    text-transform: uppercase;
-    cursor: pointer;
+    color: red;
+    font-size: 35px;
 }
-.entrar:hover{
-    background-color: white;
-    color: #252525;
+.tablaerror{
+    border: 2px solid black;
+    border-collapse: collapse;
+    margin: auto;
+    width: 100%;
+    max-width: 1200px;
+    font-size: 20px;
 }
-.volver{
-    width: 128px;
-    font-size: 100%;
-    padding: 5px;
-    margin: 3px;
-    text-align: center;
-    background-color: #252525;
-    color: white;
-    text-transform: uppercase;
-    cursor: pointer;
-}
-.volver:hover{
-    background-color: white;
-    color: #252525;
-}
-.registrarse{
-    width: 128px;
-    font-size: 100%;
-    padding: 5px;
-    margin: 3px;
-    text-align: center;
-    background-color: #252525;
-    color: white;
-    text-transform: uppercase;
-    cursor: pointer;
-}
-.registrarse:hover{
-    background-color: white;
-    color: #252525;
+.tablaerror th{
+    padding: 8px;
+    
 }
 
 /*CONTENIDO DEL REGISTRO.PHP CON DOS BOTONES*/
-
+/*
 .crear{
     width: 128px;
     font-size: 100%;
@@ -338,8 +403,10 @@ td{
 #RepetirPassword{
     width: 187px;
 }
+*/
 
 /*CONTENIDO DEL EDITARPERFIL.PHP CON CUATRO BOTONES*/
+/*
 .cambiarpassword{
     width: 315px;
     font-size: 90%;
@@ -415,9 +482,10 @@ td{
 #ImagenUsuario2{
     width: 254px;
 }
+*/
 
 /*CONTENIDO DEL CAMBIARPASSWORD.PHP CON DOS BOTONES*/
-
+/*
 #PasswordActual{
     width: 251px;
 }
@@ -427,3 +495,4 @@ td{
 #RepetirPasswordNueva{
     width: 199px;
 }
+*/
