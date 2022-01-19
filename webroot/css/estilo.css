@@ -105,18 +105,19 @@ body{
 /* FIN footer */
 
 /* Index ProyectoLoginLogout */
-.containerIndex{
+/*.containerIndex{
     position: relative;
     height: auto;
     width: 100%;
 }
-
+*/
 .formularioIndex{
-    width: 700px;
+    width: 650px;
     height: auto;
     margin: auto;
 }
 .iniciarsesion{
+    margin-top: 20px;
     width: 225px;
     font-size: 105%;
     padding: 12px;

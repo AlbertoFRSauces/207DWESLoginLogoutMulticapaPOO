@@ -1,16 +1,31 @@
 <?php
-/*
- * @author: Alberto Fernandez Ramirez
- * @since: 21/12/2021
- * @version: 1.0 Realizacion de UsuarioPDO
- * @copyright: Copyright (c) 2021, Alberto Fernandez Ramirez
- * Clase UsuarioPDO que implementa la interfaz UsuarioDB
+/**
+ * Class UsuarioPDO
+ *
+ * Fichero con la clase UsuarioPDO que nos servira para hacer consultas sobre el usuario a la base de datos
+ *
+ * PHP version 7.4
+ */
+
+/**
+ * Clase UsuarioPDO
+ * 
+ * Clase que usaremos para hacer consultas a la base de datos de usuarios
+ * 
+ * @author Alberto Fernandez Ramirez
+ * @package LoginLogout
+ * @since 21/12/2021
+ * @copyright Copyright (c) 2021, Alberto Fernandez Ramirez
+ * @version 1.0 Realizacion de UsuarioPDO
 */
 class UsuarioPDO implements UsuarioDB{
     /**
-     * Validar datos del usuario en la base de datos
-     * @param String $codUsuario Codigo del usuario a validar
-     * @param String $password Password del usuario a validar
+     * Metodo validarUsuario()
+     * 
+     * Metodo que valida si el usuario existe en la base de datos.
+     * 
+     * @param string $codUsuario Codigo del usuario a validar
+     * @param string $password Password del usuario a validar
      * @return \Usuario|null Devuelvo el objeto usuario con todo el contenido si existe en la base de datos,
      * se actualizaran las conexiones sumando una
      */
@@ -37,21 +52,110 @@ class UsuarioPDO implements UsuarioDB{
     }
     
     /**
-     * Registrar la ultima conexion del usuario y añadir una nueva
+     * Metodo registrarUltimaConexion()
+     * 
+     * Metodo que permite registrar la ultima conexion que ha realizado el usuario y añadir una nueva
+     * 
      * @param Object $oUsuario Contenido del objeto usuario
      * @return PDOStatement Devuelve el resultado de la consulta
      */
     public static function registrarUltimaConexion($oUsuario) {
         $oUsuario->setNumConexiones($oUsuario->getNumConexiones()+1);
         $oUsuario->setFechaHoraUltimaConexionAnterior($oUsuario->getFechaHoraUltimaConexion());
+        
+        //Consulta SQL para actualizar la ultima conexion del usuario y las conexiones
         $consultaActualizacionFechaUltimaConexion = <<<CONSULTA
             UPDATE T01_Usuario 
             SET T01_NumConexiones=T01_NumConexiones+1, T01_FechaHoraUltimaConexion=unix_timestamp() 
             WHERE T01_CodUsuario='{$oUsuario->getCodUsuario()}';
         CONSULTA;
+            
         DBPDO::ejecutarConsulta($consultaActualizacionFechaUltimaConexion);
         
         return $oUsuario;
+    }
+    /**
+     * Metodo altaUsuario()
+     * 
+     * Metodo que permite dar de alta un usuario nuevo en la base de datos
+     * 
+     * @param string $codUsuario El codigo del usuario
+     * @param string $password La password del usuario
+     * @param string $descUsuario La descripcion del usuario
+     * @return boolean|\Usuario Devuelve un usuario nuevo si se ha podido crear, de lo contrario devuelve un boolean que sera false
+     */
+    public static function altaUsuario($codUsuario, $password, $descUsuario){
+        //Consulta SQL para dar de alta un nuevo usuario
+        $consultaCrearUsuario = <<<CONSULTA
+            INSERT INTO T01_Usuario(T01_CodUsuario, T01_Password, T01_DescUsuario, T01_NumConexiones, T01_FechaHoraUltimaConexion) VALUES ("{$codUsuario}", SHA2("{$codUsuario}{$password}", 256), "{$descUsuario}", 1, UNIX_TIMESTAMP());
+        CONSULTA;
+        
+        if(DBPDO::ejecutarConsulta($consultaCrearUsuario)){
+            return new Usuario($codUsuario, $password, $descUsuario, 1, time(), null, null, 'usuario');
+        }else{
+            return false;
+        }
+    }
+    /**
+     * Metodo validarCodNoExiste()
+     * 
+     * Metodo que nos permite si el codigo de un usuario existe en la base de datos
+     * 
+     * @param string $codUsuario El codigo del usuario
+     * @return Un objeto con el primer resultado de la consulta ejecutada
+     */
+    public static function validarCodNoExiste($codUsuario){
+        //Consulta SQL para validar si el codigo de usuario existe
+        $consultaExisteUsuario = <<<CONSULTA
+            SELECT T01_CodUsuario FROM T01_Usuario WHERE T01_CodUsuario='{$codUsuario}';
+        CONSULTA;
+        return DBPDO::ejecutarConsulta($consultaExisteUsuario)->fetchObject();
+    }
+    /**
+     * Metodo modificarUsuario()
+     * 
+     * Metodo que nos permite modificar la descripcion de un usuario existente en la base de datos
+     * 
+     * @param object $oUsuario Objeto usuario
+     * @param string $descUsuario La nueva descripcion
+     * @return boolean|object Un objeto usuario si el usuario existe y se puede cambiar, de lo contrario un boolean a false
+     */
+    public static function modificarUsuario($oUsuario, $descUsuario){
+        //Consulta SQL para modificar la descripcion de un usuario
+        $consultaModificarUsuario = <<<CONSULTA
+            UPDATE T01_Usuario SET T01_DescUsuario="{$descUsuario}" WHERE T01_CodUsuario="{$oUsuario->getCodUsuario()}";
+        CONSULTA;
+            
+        $oUsuario->setDescUsuario($descUsuario);
+        
+        if(DBPDO::ejecutarConsulta($consultaModificarUsuario)){
+            return $oUsuario;
+        }else{
+            return false;
+        }
+    }
+    /**
+     * Metodo cambiarPassword()
+     * 
+     * Metodo que nos permite cambiar la password anterior por una nueva
+     * 
+     * @param object $oUsuario Objeto usuario
+     * @param string $password La password nueva
+     * @return boolean Un objeto usuario si el usuario existe y se puede cambiar la password, de lo contrario un boolean a false
+     */
+    public static function cambiarPassword($oUsuario, $password){
+        //Consulta SQL para modificar la password de un usuario
+        $consultaModificarPassword = <<<CONSULTA
+            UPDATE T01_Usuario SET T01_Password=SHA2("{$oUsuario->getCodUsuario()}{$password}", 256) WHERE T01_CodUsuario="{$oUsuario->getCodUsuario()}";
+        CONSULTA;
+            
+        $oUsuario->setPassword($password);
+        
+        if(DBPDO::ejecutarConsulta($consultaModificarPassword)){
+            return $oUsuario;
+        }else{
+            return false;
+        }
     }
 }
 ?>
