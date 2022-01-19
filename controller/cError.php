@@ -1,14 +1,17 @@
 <?php
 /*
+ * 
+ * @package: LoginLogout
  * @author: Alberto Fernandez Ramirez
  * @since: 13/01/2022
  * @version: 1.0 Realizacion de cError
- * @copyright: Copyright (c) 2021, Alberto Fernandez Ramirez
+ * @copyright: Copyright (c) 2022, Alberto Fernandez Ramirez
  * Controlador de Error
  */
 
 if(isset($_REQUEST['volvererror'])){ //Si el usuario pulsa el boton de volver, mando al usuario a la pagina de inicio publico
-    $_SESSION['paginaEnCurso'] = 'iniciopublico'; //Asigno a la pagina en curso la pagina de inicio publico
+    $_SESSION['paginaEnCurso'] = $_SESSION['error']->getPaginaSiguiente(); //Asigno a la pagina en curso la pagina de inicio publico
+    unset($_SESSION['error']);
     header('Location: index.php'); //Redireciono de nuevo al inicio publico
     exit;
 }

@@ -1,9 +1,11 @@
 <?php
 /*
+ * 
+ * @package: LoginLogout
  * @author: Alberto Fernandez Ramirez
  * @since: 13/01/2022
  * @version: 1.0 Realizacion de cInicioPublico
- * @copyright: Copyright (c) 2021, Alberto Fernandez Ramirez
+ * @copyright: Copyright (c) 2022, Alberto Fernandez Ramirez
  * Controlador de inicio publico
  */
 
@@ -15,7 +17,7 @@ if(isset($_REQUEST['iniciarsesion'])){ //Si el usuario pulsa el boton de iniciar
 
 if(isset($_REQUEST['registrarse'])){ //Si el usuario pulsa el boton de registrarse, mando al usuario a la pagina de WorkingProgress
     $_SESSION['paginaAnterior'] = 'iniciopublico'; //Guardo la pagina actual en paginaAnterior para recordarla
-    $_SESSION['paginaEnCurso'] = 'wip'; //Asigno a la pagina en curso la pagina de working progress
+    $_SESSION['paginaEnCurso'] = 'registro'; //Asigno a la pagina en curso la pagina de working progress
     header('Location: index.php'); //Redireciono de nuevo al working progress
     exit;
 }

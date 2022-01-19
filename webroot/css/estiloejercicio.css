@@ -257,7 +257,7 @@ fieldset p:first-child{
     text-transform: uppercase;
     cursor: pointer;
     font-weight: bold;
-    margin: 10px;
+    
 }
 .detalle:hover{
     background-color: white;
@@ -290,13 +290,6 @@ fieldset p:first-child{
     justify-content: center;
     align-items: center;
 }
-.cerrarsesion{
-    
-}
-.detalle{
-    
-}
-
 .usuario{
     text-align: center;
 }
@@ -362,11 +355,44 @@ td{
 }
 .tablaerror th{
     padding: 8px;
-    
+
 }
 
 /*CONTENIDO DEL REGISTRO.PHP CON DOS BOTONES*/
-/*
+.formRegistro{
+    margin-top: 15px;
+    margin-bottom: 70px;
+}
+.formRegistro fieldset{
+    border: 2px solid black;
+    width: 375px;
+    margin:auto;
+    background-color:#EEEEEE;
+}
+.formRegistro ul{
+    list-style: none;
+}
+.formRegistro ul li{
+    padding-left: 15px;
+    padding-bottom: 15px;
+    padding-right: 15px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+.tituloRegistros{
+    margin-left: 13px; 
+}
+.tituloRegistros fieldset p:first-child{
+    font-size: 190%;
+    padding-top: 15px;
+    padding-left: 15px;
+    padding-bottom: 15px;
+}
+.errores{
+    height: 14px;
+}
 .crear{
     width: 128px;
     font-size: 100%;
@@ -397,16 +423,60 @@ td{
     background-color: white;
     color: #252525;
 }
+#CodUsuarioReg{
+    width: 300px;
+}
 #DescUsuario{
-    width: 225px;
+    width: 300px;
+}
+#PasswordReg{
+    width: 300px;
 }
 #RepetirPassword{
-    width: 187px;
+    width: 300px;
 }
-*/
+.mensajeError{
+    margin-top: 10px;
+    color: #D90000;
+    text-align: center;
+}
 
 /*CONTENIDO DEL EDITARPERFIL.PHP CON CUATRO BOTONES*/
-/*
+.formMiCuenta{
+    margin-top: 15px;
+    margin-bottom: 70px;
+}
+.formMiCuenta fieldset{
+    border: 2px solid black;
+    width: 375px;
+    margin:auto;
+    background-color:#EEEEEE;
+}
+.formMiCuenta ul{
+    list-style: none;
+}
+.formMiCuenta ul li{
+    padding-left: 15px;
+    padding-bottom: 15px;
+    padding-right: 15px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+.tituloMiCuenta{
+    margin-left: 13px; 
+}
+.formMiCuenta span{
+    font-size: 90%;
+    color: red;
+}
+.formMiCuenta fieldset p:first-child{
+    font-size: 190%;
+    padding-top: 15px;
+    padding-left: 15px;
+    padding-bottom: 15px;
+}
 .cambiarpassword{
     width: 315px;
     font-size: 90%;
@@ -482,10 +552,43 @@ td{
 #ImagenUsuario2{
     width: 254px;
 }
-*/
 
 /*CONTENIDO DEL CAMBIARPASSWORD.PHP CON DOS BOTONES*/
-/*
+.formCambiarPassword{
+    margin-top: 15px;
+    margin-bottom: 70px;
+}
+.formCambiarPassword fieldset{
+    border: 2px solid black;
+    width: 450px;
+    margin:auto;
+    background-color:#EEEEEE;
+}
+.formCambiarPassword ul{
+    list-style: none;
+}
+.formCambiarPassword ul li{
+    padding-left: 15px;
+    padding-bottom: 15px;
+    padding-right: 15px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+.tituloCambiarPassword{
+    margin-left: 13px; 
+}
+.formCambiarPassword span{
+    font-size: 90%;
+    color: red;
+}
+.formCambiarPassword fieldset p:first-child{
+    font-size: 190%;
+    padding-top: 15px;
+    padding-left: 15px;
+    padding-bottom: 15px;
+}
 #PasswordActual{
     width: 251px;
 }
@@ -495,4 +598,3 @@ td{
 #RepetirPasswordNueva{
     width: 199px;
 }
-*/
